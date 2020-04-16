@@ -1,0 +1,15 @@
+<button onclick="c()">点我</button>
+<script>
+    // 老式注入，无需在页面执行bind，因为只针对单页面（Single Page Applications）
+    function b() {
+        test.bbb();
+    }
+
+    // 新式注入
+    CefSharp.BindObjectAsync("testnew");
+    function c() {
+        testnew.bbb().then((r) => {
+            alert(r);
+        })
+    }
+</script>
